@@ -1,0 +1,7 @@
+services:
+  build:
+    image: node:20.19-bookworm
+    volumes:
+      - .:/home/node/app
+    working_dir: /home/node/app
+    command: "bash -c 'npm run clean && npm update && npm install && npm run build:webextension:firefox && npm run package && chown -R 1000:1000 /home/node/app' "
